@@ -10,31 +10,50 @@
 
 </head>
 
-<body class="w-screen h-full border-2 bg-gray-900 flex justify-center items-center">
+<body class="w-screen h-full select-none bg-gray-900 flex justify-center items-center">
 
-    <div class="w-[90%] rounded-xl  aspect-square absolute  bg-blue-900   [&>button]:bg-gray-100 [&>button]:rounded-lg grid-cols-3 grid grid-rows-3 gap-3 p-3 [&>button]:text-5xl [&>button]:font-bold md:h-[70%] md:aspect-square top-[40%] translate-y-[-50%]"
+    <div class="w-[90%] rounded-xl aspect-square absolute bg-blue-900 [&>button]:bg-gray-100 
+
+        [&>button]:rounded-lg grid-cols-3 grid grid-rows-3 gap-3 p-3 [&>button]:text-5xl [&>button]:font-bold md:h-[70%] md:aspect-square top-[40%] translate-y-[-50%] [&>button]:transition-all [&>button]:duration-300 
+
+         [&>div]:bg-red-600   [&>div]:rounded-4xl [&>div]:absolute [&>div]:ease-in-out [&>div]:transition-all 0 [&>div]:duration-1000 "
         id="board">
+
+
         <button onclick="changeValue(0,0,0)"></button>
+        <div class="top-[17%] w-[0%] h-2 left-[10%]"></div>
+
         <button onclick="changeValue(0,1,1)"></button>
+        <div class="top-[50%] w-[0%] h-2 left-[10%]"></div>
+
         <button onclick="changeValue(0,2,2)"></button>
+        <div class="top-[82%] w-[0%] h-2 left-[10%]"></div>
+
         <button onclick="changeValue(1,0,3)"></button>
+        <div class="w-[0%] bottom-[13%] origin-top-right right-[85%] h-2 rotate-[135deg]"></div>
+
         <button onclick="changeValue(1,1,4)"></button>
+        <div class="w-[0%] bottom-[13%] origin-top-right  right-[13%] h-2 rotate-[45deg]"></div>
+
         <button onclick="changeValue(1,2,5)"></button>
+        <div class="w-2 h-[0%] top-[10%] left-[17%]"></div>
+
         <button onclick="changeValue(2,0,6)"></button>
+        <div class="w-2 h-[0%] top-[10%] left-[49.5%]"></div>
+
         <button onclick="changeValue(2,1,7)"></button>
-        <button onclick="changeValue(2,2,8)"></button>
+        <div class="w-2 h-[0%] top-[10%] left-[82%]"></div>
+        <button onclick=" changeValue(2,2,8)"></button>
+
     </div>
 
-    <div class="absolute top-0 left-0 w-full h-full bg-blue-700 bg-opacity-50 z-50  justify-center items-center hidden"
-        id="modal">
-        <div class="w-[90%] h-[90%] bg-white rounded-xl flex justify-center items-center flex-col">
-            <h1 class="text-4xl font-bold" id="winner">Winner</h1>
-            <button class="bg-blue-900 text-white p-3 rounded-lg mt-3" onclick="reset()">Reset</button>
-        </div>
-    </div>
 
     <button class="absolute bottom-[10%] bg-blue-900 text-white p-3 px-6 font-bold text-3xl rounded-lg mt-3"
         onclick="reset()">Reset</button>
+
+
+
+    </div>
 
     <script src="index.js"></script>
 

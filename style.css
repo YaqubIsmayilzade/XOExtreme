@@ -1,1 +1,7 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+#logo {
+  top: 50%;
+  left: 50%;
+  rotate: 45deg;
+}

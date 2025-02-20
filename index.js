@@ -4,10 +4,12 @@ let gamePlay = [
   ["7", "8", "9"],
 ];
 
+const line = document.getElementById("line");
+
 let board = document.getElementById("board");
 let game = board.getElementsByTagName("button");
+let lines = board.getElementsByTagName("div");
 
-const modal = document.getElementById("modal");
 const winner = document.getElementById("winner");
 
 let player = "X";
@@ -25,7 +27,6 @@ function changeValue(x, y) {
     } else {
       OCord.push([x, y]);
     }
-    player = player === "X" ? "O" : "X";
 
     console.log(XCord, OCord);
 
@@ -38,14 +39,28 @@ function changeValue(x, y) {
       gamePlay[OCord[0][0]][OCord[0][1]] = "";
       OCord.shift();
     }
-  }
 
-  if (checkWinner() != null) {
-    modal.style.display = "flex";
-    winner.textContent = checkWinner() + " is the winner";
-  } else if (gamePlay.flat().every((val) => val === "X" || val === "O")) {
-    modal.style.display = "flex";
-    winner.textContent = "It's a draw";
+    if (OCord.length == 3 && player == "O") {
+      resetColor();
+      game[XCord[0][0] * 3 + XCord[0][1]].style.backgroundColor =
+        "rgb(255, 162, 163)";
+    }
+    if (OCord.length == 3 && player == "X") {
+      resetColor();
+      game[OCord[0][0] * 3 + OCord[0][1]].style.backgroundColor =
+        "rgb(255, 162, 163)";
+    }
+
+    player = player === "X" ? "O" : "X";
+
+    checkWinner();
+  }
+}
+
+function resetColor() {
+  for (let i = 0; i < game.length; i++) {
+    game[i].style.color = "black";
+    game[i].style.backgroundColor = "white";
   }
 }
 
@@ -55,6 +70,8 @@ function checkWinner() {
     gamePlay[0][0] === gamePlay[0][2] &&
     gamePlay[0][0] != ""
   ) {
+    lines[0].style.width = "80%";
+    resetColor();
     return gamePlay[0][0];
   }
   if (
@@ -62,6 +79,8 @@ function checkWinner() {
     gamePlay[1][0] === gamePlay[1][2] &&
     gamePlay[1][0] != ""
   ) {
+    lines[1].style.width = "80%";
+    resetColor();
     return gamePlay[1][0];
   }
   if (
@@ -69,6 +88,8 @@ function checkWinner() {
     gamePlay[2][0] === gamePlay[2][2] &&
     gamePlay[2][0] != ""
   ) {
+    lines[2].style.width = "80%";
+    resetColor();
     return gamePlay[2][0];
   }
   if (
@@ -76,6 +97,8 @@ function checkWinner() {
     gamePlay[0][0] === gamePlay[2][0] &&
     gamePlay[0][0] != ""
   ) {
+    lines[5].style.height = "80%";
+    resetColor();
     return gamePlay[0][0];
   }
   if (
@@ -83,6 +106,8 @@ function checkWinner() {
     gamePlay[0][1] === gamePlay[2][1] &&
     gamePlay[0][1] != ""
   ) {
+    lines[6].style.height = "80%";
+    resetColor();
     return gamePlay[0][1];
   }
   if (
@@ -90,6 +115,8 @@ function checkWinner() {
     gamePlay[0][2] === gamePlay[2][2] &&
     gamePlay[0][2] != ""
   ) {
+    lines[7].style.height = "80%";
+    resetColor();
     return gamePlay[0][2];
   }
   if (
@@ -97,6 +124,8 @@ function checkWinner() {
     gamePlay[0][0] === gamePlay[2][2] &&
     gamePlay[0][0] != ""
   ) {
+    lines[4].style.width = "100%";
+    resetColor();
     return gamePlay[0][0];
   }
   if (
@@ -104,6 +133,8 @@ function checkWinner() {
     gamePlay[0][2] === gamePlay[2][0] &&
     gamePlay[0][2] != ""
   ) {
+    lines[3].style.width = "100%";
+    resetColor();
     return gamePlay[0][2];
   }
   return null;
@@ -120,6 +151,13 @@ function reset() {
   }
   XCord = [];
   OCord = [];
-  modal.style.display = "none";
   player = "X";
+  resetColor();
+
+  for (let i = 0; i < 5; i++) {
+    lines[i].style.width = "0%";
+  }
+  lines[5].style.height = "0%";
+  lines[6].style.height = "0%";
+  lines[7].style.height = "0%";
 }
