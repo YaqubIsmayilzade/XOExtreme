@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="icon" href="tic-tac-toe.png">
+
+</head>
+
+<body class="w-screen h-full border-2 bg-gray-900 flex justify-center items-center">
+
+    <div class="w-[90%] rounded-xl  aspect-square absolute  bg-blue-900   [&>button]:bg-gray-100 [&>button]:rounded-lg grid-cols-3 grid grid-rows-3 gap-3 p-3 [&>button]:text-5xl [&>button]:font-bold md:h-[70%] md:aspect-square top-[40%] translate-y-[-50%]"
+        id="board">
+        <button onclick="changeValue(0,0,0)"></button>
+        <button onclick="changeValue(0,1,1)"></button>
+        <button onclick="changeValue(0,2,2)"></button>
+        <button onclick="changeValue(1,0,3)"></button>
+        <button onclick="changeValue(1,1,4)"></button>
+        <button onclick="changeValue(1,2,5)"></button>
+        <button onclick="changeValue(2,0,6)"></button>
+        <button onclick="changeValue(2,1,7)"></button>
+        <button onclick="changeValue(2,2,8)"></button>
+    </div>
+
+    <div class="absolute top-0 left-0 w-full h-full bg-blue-700 bg-opacity-50 z-50  justify-center items-center hidden"
+        id="modal">
+        <div class="w-[90%] h-[90%] bg-white rounded-xl flex justify-center items-center flex-col">
+            <h1 class="text-4xl font-bold" id="winner">Winner</h1>
+            <button class="bg-blue-900 text-white p-3 rounded-lg mt-3" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <button class="absolute bottom-[10%] bg-blue-900 text-white p-3 px-6 font-bold text-3xl rounded-lg mt-3"
+        onclick="reset()">Reset</button>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
